@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My first three.js app</title>
+    <title>Prima triângular</title>
   </head>
   <link rel="stylesheet" href="./style/style.css" />
   <body>
@@ -19,12 +19,12 @@
 
       const geometry = new THREE.CylinderGeometry(3, 3, 10, 3);
       const loader = new THREE.TextureLoader();
-      renderer.setClearColor(0x333333);
-      const texture = loader.load("https://i.imgur.com/uu12f5W.jpg");
+      renderer.setClearColor(0x333333); // INSERINDO COR NO FUNDO
+      const texture = loader.load("https://i.imgur.com/Y2nFrPi.png"); //CARREGANDO IMAFGEM PARA TEXTURA
       const material = new THREE.MeshBasicMaterial({
         map: texture,
       });
-      //material.map = texture;
+
       const prisma = new THREE.Mesh(geometry, material);
       scene.add(prisma);
 

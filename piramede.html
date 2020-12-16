@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My first three.js app</title>
+    <title>Piramede</title>
   </head>
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="style/style.css" />
   <body>
     <h1>Piramide</h1>
     <style></style>
@@ -15,12 +15,12 @@
       const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 
       const renderer = new THREE.WebGLRenderer();
-      renderer.setClearColor(0x333333);
+      renderer.setClearColor(0x333333); // COLANDO COR NO FUNDO
       renderer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement);
 
       const loader = new THREE.TextureLoader();
-      const texture = loader.load("https://i.imgur.com/uJFz3EZ.png");
+      const texture = loader.load("https://i.imgur.com/uJFz3EZ.png"); // CARREGANDO A IMAGEM PARA A TEXTURA
       const geometry = new THREE.ConeGeometry(2, 2, 4);
       const material = new THREE.MeshBasicMaterial({
         map: texture,

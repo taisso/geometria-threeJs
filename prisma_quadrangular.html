@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My first three.js app</title>
+    <title>Prisma quadrangular</title>
     <link rel="stylesheet" href="style/style.css" />
   </head>
   <body>
@@ -19,7 +19,7 @@
       document.body.appendChild(renderer.domElement);
 
       const loader = new THREE.TextureLoader();
-      const texture = loader.load("https://i.imgur.com/S5BkCcB.png");
+      const texture = loader.load("https://i.imgur.com/S5BkCcB.png"); // CARREGANDO IMAGEM PARA TEXTURA
       const geometry = new THREE.BoxGeometry(4, 4, 8);
 
       const material = new THREE.MeshBasicMaterial({
