@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first three.js app</title>
+  </head>
+  <link rel="stylesheet" href="style/style.css">
+  <body>
+    <h1>Piramide</h1>
+    <style></style>
+    <script src="./js/three.js"></script>
+    <script>
+      const scene = new THREE.Scene();
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setClearColor(0x333333);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const loader = new THREE.TextureLoader();
+      const texture = loader.load("https://i.imgur.com/uJFz3EZ.png");
+      const geometry = new THREE.ConeGeometry(2, 2, 4);
+      const material = new THREE.MeshBasicMaterial({
+        map: texture,
+      });
+
+      const cone = new THREE.Mesh(geometry, material);
+      scene.add(cone);
+
+      camera.position.z = 5;
+
+      const animate = function () {
+        requestAnimationFrame(animate);
+
+        //cone.rotation.x += 0.01;
+        cone.rotation.y += 0.01;
+        // cone.rotation.z += 0.01;
+
+        renderer.render(scene, camera);
+      };
+
+      animate();
+    </script>
+  </body>
+</html>

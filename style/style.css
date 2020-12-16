@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+}
+
+h1 {
+  position: fixed;
+  width: 100vw;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#principal {
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}

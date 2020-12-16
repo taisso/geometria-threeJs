@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first three.js app</title>
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <h1>Prisma quadrangular</h1>
+    <script src="./js/three.js"></script>
+    <script>
+      const scene = new THREE.Scene();
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setClearColor(0x333333);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const loader = new THREE.TextureLoader();
+      const texture = loader.load("https://i.imgur.com/S5BkCcB.png");
+      const geometry = new THREE.BoxGeometry(4, 4, 8);
+
+      const material = new THREE.MeshBasicMaterial({
+        map: texture,
+      });
+
+      console.log(geometry);
+      const cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+
+      camera.position.z = 20;
+
+      const animate = function () {
+        requestAnimationFrame(animate);
+        cube.rotation.y += 0.01;
+        renderer.render(scene, camera);
+      };
+
+      animate();
+    </script>
+  </body>
+</html>

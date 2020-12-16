@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first three.js app</title>
+  </head>
+  <link rel="stylesheet" href="./style/style.css" />
+  <body>
+    <h1>Prima triângular</h1>
+    <script src="./js/three.js"></script>
+    <script>
+      const scene = new THREE.Scene();
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+
+      const renderer = new THREE.WebGLRenderer();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement);
+
+      const geometry = new THREE.CylinderGeometry(3, 3, 10, 3);
+      const loader = new THREE.TextureLoader();
+      renderer.setClearColor(0x333333);
+      const texture = loader.load("https://i.imgur.com/uu12f5W.jpg");
+      const material = new THREE.MeshBasicMaterial({
+        map: texture,
+      });
+      //material.map = texture;
+      const prisma = new THREE.Mesh(geometry, material);
+      scene.add(prisma);
+
+      camera.position.z = 30;
+
+      const animate = function () {
+        requestAnimationFrame(animate);
+
+        //prisma.rotation.x += 0.01;
+        prisma.rotation.y += 0.01;
+        //prisma.rotation.z += 0.01;
+
+        renderer.render(scene, camera);
+      };
+
+      animate();
+    </script>
+  </body>
+</html>
